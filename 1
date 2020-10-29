@@ -1,1 +1,155 @@
-fdfdfd
+enum Action {
+    //MARK:- ALLCARS
+    case openndoor
+    case closedoor
+    case openwindow
+    case closewindow
+    case brakewindow
+    case turnonengine
+    case turnoffengine
+    //MARK:- SportCar
+    case turnonsportmode
+    case turnoffsportmode
+    case extendspoiler
+    case pushsloipler
+    //MARK:- TruckCar
+    case openbody
+    case closebody
+    //Простите за глупые идеи и кривой перевод
+}
+class Car {
+    var model : String
+    var engineStatus : engineStatus
+    var wheels : Int
+    var releaseyear : Int
+    var maxtruckload : Int
+    var truckLoad : Float
+    var windowStatus : windowStatus
+    func handleAction(_ action: Action){}
+    enum windowStatus {
+        case open
+        case closed
+        case broken
+    }
+    enum engineStatus {
+        case on
+        case off
+    }
+}
+class SportCar: Car {
+    var maxspeed: Int
+    var maxpersons: Int
+    
+    init(model : String, engineStatus : engineStatus, wheels : Int, releaseyear : Int, maxtruckload : Int, truckLoad : Float, windowStatus : windowStatus, maxspeed: Int, maxpersons: Int) {
+        self.model = model
+        self.engineStatus = engineStatus
+        self.wheels = wheels
+        self.releaseyear = releaseyear
+        self.maxtruckload = maxtruckload
+        self.truckLoad = truckLoad
+        self.windowStatus = windowStatus
+        self.maxspeed = maxspeed
+        self.maxpersons = maxpersons
+        }
+    
+    override func handleAction(_ action: Action) {
+        Action.brakewindow
+        Action.closedoor
+        Action.closewindow
+        Action.openndoor
+        Action.openwindow
+        Action.turnonengine
+        Action.turnoffengine
+        Action.turnonsportmode
+        Action.turnoffsportmode
+        Action.extendspoiler
+        Action.extendspoiler
+    }
+    func info () {
+        print ("\(self.model) has engene status \(self.engineStatus), has wheels \(self.wheels), released in \(self.releaseyear), has truck volume \(self.maxtruckload), has load \(self.truckLoad), has \(self.windowStatus) windows, has \(self.maxspeed), and can carry \(self.maxpersons) people!")
+    }
+    func set (model: String) {
+        self.model = model
+    }
+    func set (engineStatus: engineStatus) {
+        self.engineStatus = engineStatus
+    }
+    func set (wheels: Int) {
+        self.wheels = wheels
+    }
+    func set (releaseyear: Int) {
+        self.releaseyear = releaseyear
+    }
+    func set (maxtruckload: Int) {
+        self.maxtruckload = maxtruckload
+    }
+    func set (truckLoad: Float) {
+        self.truckLoad = truckLoad
+    }
+    func set (windowStatus: windowStatus) {
+        self.windowStatus = windowStatus
+    }
+    func set (maxspeed: Int) {
+        self.maxspeed = maxspeed
+    }
+    func set (maxpersons: Int) {
+        self.maxpersons = maxpersons
+    }
+}
+class TruckCar: Car {
+    var carrying: Int
+    init(model : String, engineStatus : engineStatus, wheels : Int, releaseyear : Int, maxtruckload : Int, truckLoad : Float, windowStatus : windowStatus, carrying: Int) {
+        self.model = model
+        self.engineStatus = engineStatus
+        self.wheels = wheels
+        self.releaseyear = releaseyear
+        self.maxtruckload = maxtruckload
+        self.truckLoad = truckLoad
+        self.windowStatus = windowStatus
+        self.carrying = carrying
+        }
+    
+    override func handleAction(_ action: Action) {
+        Action.brakewindow
+        Action.closedoor
+        Action.closewindow
+        Action.openndoor
+        Action.openwindow
+        Action.turnonengine
+        Action.turnoffengine
+        Action.openbody
+        Action.closebody
+    }
+    func info () {
+        print ("\(self.model) has engene status \(self.engineStatus), has wheels \(self.wheels), released in \(self.releaseyear), has truck volume \(self.maxtruckload), has load \(self.truckLoad), has \(self.windowStatus) windows, has carryng \(self.carrying)!")
+    }
+    func set (model: String) {
+        self.model = model
+    }
+    func set (engineStatus: engineStatus) {
+        self.engineStatus = engineStatus
+    }
+    func set (wheels: Int) {
+        self.wheels = wheels
+    }
+    func set (releaseyear: Int) {
+        self.releaseyear = releaseyear
+    }
+    func set (maxtruckload: Int) {
+        self.maxtruckload = maxtruckload
+    }
+    func set (truckLoad: Float) {
+        self.truckLoad = truckLoad
+    }
+    func set (windowStatus: windowStatus) {
+        self.windowStatus = windowStatus
+    }
+    func set (carrying: Int) {
+        self.carrying = carrying
+    }
+}
+var mb = SportCar (model: "AMG GT", engineStatus: Car.engineStatus.on, wheels: 4, releaseyear: 2019, maxtruckload: 200, truckLoad: 27.6, windowStatus: Car.windowStatus.closed, maxspeed: 320, maxpersons: 4)
+mb .info()
+var volvo = TruckCar (model: "FH16", engineStatus: Car.engineStatus.off, wheels: 8, releaseyear: 2020, maxtruckload: 100000, truckLoad: 1111.23, windowStatus: Car.windowStatus.open, carrying: 100000)
+volvo .info()
+
